@@ -26,8 +26,8 @@ const features = [
 ];
 
 const stats = [
-  { label: "পাঠ", value: "৬+", icon: "📖" },
-  { label: "চ্যালেঞ্জ", value: "৩+", icon: "🏆" },
+  { label: "পাঠ", value: "১০+", icon: "📖" },
+  { label: "চ্যালেঞ্জ", value: "১২+", icon: "🏆" },
   { label: "শিক্ষার্থী", value: "১০০০+", icon: "👨‍🎓" },
   { label: "সফলতার হার", value: "৯৫%", icon: "⭐" },
 ];
