@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bagh-online-app"
+version = "0.1.0"
+description = "FastAPI backend for the Bagh Online platform."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Shahriar Labs" }]
+dependencies = [
+  "fastapi==0.111.1",
+  "uvicorn[standard]==0.30.3",
+  "pydantic==2.7.4",
+  "pydantic-settings==2.3.1",
+  "tenacity==8.3.0",
+  "google-generativeai==0.6.0",
+  "bagh-lang>=0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx==0.27.0",
+  "pytest==8.2.2",
+]
+
+[project.scripts]
+bagh-api = "app.main:run"
+
+[tool.setuptools]
+packages = ["app"]

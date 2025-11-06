@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-h-screen bg-bagh-nebula text-slate-100 font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+
+  /* Improve touch targets for mobile */
+  button,
+  a {
+    @apply touch-manipulation;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-bagh-card/90 backdrop-blur-xl border border-cyan-300/10 rounded-2xl sm:rounded-3xl shadow-glow;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-cyan-500/10 text-cyan-200 text-xs sm:text-sm font-semibold;
+  }
+
+  .section-title {
+    @apply text-lg sm:text-xl font-semibold tracking-wide text-cyan-200 uppercase;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-cyan-300 px-4 sm:px-5 py-2 text-sm sm:text-base font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:bg-cyan-200 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full border border-cyan-300/30 px-4 sm:px-5 py-2 text-sm sm:text-base font-semibold text-cyan-100 transition hover:border-cyan-200/60 active:scale-95;
+  }
+
+  .code-block {
+    @apply font-mono text-xs sm:text-sm leading-relaxed whitespace-pre-wrap break-words rounded-xl sm:rounded-2xl bg-slate-900/80 border border-cyan-300/20 px-3 sm:px-4 py-2.5 sm:py-3;
+  }
+}

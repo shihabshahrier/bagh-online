@@ -1,0 +1,27 @@
+/* TEAM */
+Developer: Shahriar Labs
+Contact: hey@shahriarlabs.com
+Website: https://shahriarlabs.com
+GitHub: https://github.com/shihabshahrier
+Location: Bangladesh
+
+/* THANKS */
+Language: Bagh Lang
+Community: Bengali Programming Community
+
+/* SITE */
+Last update: 2025/11/06
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: React, TypeScript, FastAPI, Python
+Frameworks: Vite, TailwindCSS, Framer Motion
+Software: VS Code, Git
+Language: Bengali (বাংলা), English
+Doctype: HTML5
+IDE: Visual Studio Code
+
+/* PROJECT */
+Name: Bagh Online
+Description: Interactive Bengali Programming Learning Platform
+Repository: https://github.com/shihabshahrier/bagh-online
+License: MIT
+Version: 0.1.0

@@ -1,0 +1,62 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+.env
+*.pyc
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# FastAPI app
+Backend/app/.env
+
+# Node / Vite
+node_modules/
+Frontend/node_modules/
+Frontend/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE & Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Documentation (keep only essential)
+BUILD_SUMMARY.txt
+REBUILD_SUMMARY.md
+FINAL_CHECKLIST.md
+README_REBUILT.md
+
