@@ -11,10 +11,12 @@ export type LessonSection = {
 
 export type PracticeItem = {
   id: string;
-  type: "mcq" | "predict";
+  type: "mcq" | "predict" | "fill-in-the-blank";
   question: string;
-  options: string[];
-  answerIndex: number;
+  options?: string[];
+  answerIndex?: number;
+  codeSnippet?: string;
+  correctAnswer?: string;
   success: string;
   explanation: string;
 };
@@ -87,6 +89,15 @@ export const lessons: Lesson[] = [
         answerIndex: 1,
         success: "দুইটি লাইন মানে দুইবার দেখা যাবে!",
         explanation: "প্রতিটি `লিখো` আলাদা লাইনে কাজ করে।",
+      },
+      {
+        id: "hello-q3",
+        type: "fill-in-the-blank",
+        question: "নিচের কোডের শূন্যস্থান পূরণ করে 'হ্যালো দুনিয়া' প্রিন্ট করো:",
+        codeSnippet: `____("হ্যালো দুনিয়া")`,
+        correctAnswer: "লিখো",
+        success: "চমৎকার! তুমি `লিখো` কমান্ড ব্যবহার করতে শিখে গেছো।",
+        explanation: "যেকোনো বার্তা প্রিন্ট করতে `লিখো` কমান্ড ব্যবহার করা হয়।",
       },
     ],
   },

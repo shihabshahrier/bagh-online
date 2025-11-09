@@ -7,6 +7,8 @@ translating to Python, and providing Gemini-powered assistance.
 from __future__ import annotations
 
 import logging
+import sys
+import time
 import uuid
 from datetime import datetime
 from importlib import resources
@@ -34,7 +36,44 @@ from .sandbox import SandboxError, SandboxExecutor, SandboxResult, SandboxTimeou
 from bagh_lang.syntax import SyntaxValidationError, validate_python_syntax
 from bagh_lang.translator import translate_bagh_to_python
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    stream=sys.stdout,
+)
 logger = logging.getLogger("bagh_online.api")
+
+
+async def logging_middleware(request: Request, call_next):
+    start_time = time.time()
+    request_id = str(uuid.uuid4())
+    
+    logger.info(
+        "Request started", 
+        extra={
+            "method": request.method,
+            "url": str(request.url),
+            "request_id": request_id,
+        }
+    )
+
+    response = await call_next(request)
+    
+    process_time = (time.time() - start_time) * 1000
+    logger.info(
+        "Request finished",
+        extra={
+            "method": request.method,
+            "url": str(request.url),
+            "request_id": request_id,
+            "status_code": response.status_code,
+            "process_time_ms": f"{process_time:.2f}",
+        }
+    )
+    
+    return response
+
+
 
 
 def _load_bagh_context() -> str:
@@ -59,10 +98,12 @@ def create_app() -> FastAPI:
         default_response_class=JSONResponse,
     )
 
+    app.middleware("http")(logging_middleware)
+
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=list(settings.cors_allow_origins),
-        allow_credentials=settings.cors_allow_credentials,
+        allow_origins=settings.cors_allow_origins,
+        allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
     )

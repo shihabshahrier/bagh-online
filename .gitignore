@@ -26,8 +26,11 @@ env/
 .dmypy.json
 dmypy.json
 
-# FastAPI app
+# Environment variables (all .env files are local)
+.env
+*.env.local
 Backend/app/.env
+Frontend/.env
 
 # Node / Vite
 node_modules/
