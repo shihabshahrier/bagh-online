@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useForm, ValidationError } from "@formspree/react";
 
 const features = [
   {
@@ -68,6 +69,141 @@ const itemVariants = {
     },
   },
 };
+
+// Newsletter Form Component
+function NewsletterForm() {
+  const [state, handleSubmit] = useForm("mgvrwpnr");
+
+  return (
+    <motion.div variants={itemVariants} className="glass-panel p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-400/20 to-pink-400/20 flex items-center justify-center text-xl sm:text-2xl">
+          📧
+        </div>
+        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-purple-200">
+          সংবাদপত্রে যোগ দাও
+        </h2>
+      </div>
+
+      <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+        মাসে একবার পাঠ, চ্যালেঞ্জ আর নতুন ফিচারের আপডেট চলে যায় এই নিউজলেটারে।
+      </p>
+
+      {state.succeeded ? (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="rounded-xl sm:rounded-2xl bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/30 p-4 sm:p-6 text-center"
+        >
+          <div className="text-3xl sm:text-4xl mb-2">✅</div>
+          <p className="text-sm sm:text-base text-green-100 font-semibold">
+            ধন্যবাদ! খুব তাড়াতাড়ি আমরা আপনাকে মেইল পাঠাবো।
+          </p>
+        </motion.div>
+      ) : (
+        <form className="space-y-3 sm:space-y-4" onSubmit={handleSubmit}>
+          <div>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              required
+              placeholder="তোমার নাম"
+              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
+            />
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
+          </div>
+          <div>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              placeholder="ইমেইল ঠিকানা"
+              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
+            />
+            <ValidationError prefix="Email" field="email" errors={state.errors} />
+          </div>
+          <button
+            type="submit"
+            disabled={state.submitting}
+            className="w-full rounded-xl sm:rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 px-5 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-purple-500/30 transition-all hover:shadow-xl hover:shadow-purple-500/40 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+          >
+            {state.submitting ? "পাঠানো হচ্ছে..." : "সাবস্ক্রাইব করো"}
+          </button>
+        </form>
+      )}
+    </motion.div>
+  );
+}
+
+// Contact Form Component
+function ContactForm() {
+  const [state, handleSubmit] = useForm("meovjprr");
+
+  return (
+    <motion.div variants={itemVariants} className="space-y-3 sm:space-y-4">
+      {state.succeeded ? (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="rounded-xl sm:rounded-2xl bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/30 p-6 sm:p-8 text-center"
+        >
+          <div className="text-4xl sm:text-5xl mb-3">✅</div>
+          <p className="text-base sm:text-lg text-green-100 font-semibold mb-2">
+            বার্তার জন্য ধন্যবাদ!
+          </p>
+          <p className="text-sm text-green-200">
+            আমরা দ্রুত যোগাযোগ করবো।
+          </p>
+        </motion.div>
+      ) : (
+        <form className="space-y-3 sm:space-y-4" onSubmit={handleSubmit}>
+          <div>
+            <input
+              id="contact-name"
+              type="text"
+              name="name"
+              required
+              placeholder="নাম"
+              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
+            />
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
+          </div>
+          <div>
+            <input
+              id="contact-email"
+              type="email"
+              name="email"
+              required
+              placeholder="ইমেইল"
+              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
+            />
+            <ValidationError prefix="Email" field="email" errors={state.errors} />
+          </div>
+          <div>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={4}
+              placeholder="বার্তা লিখুন..."
+              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all resize-none"
+            />
+            <ValidationError prefix="Message" field="message" errors={state.errors} />
+          </div>
+          <button
+            type="submit"
+            disabled={state.submitting}
+            className="w-full rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 px-5 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-cyan-500/30 transition-all hover:shadow-xl hover:shadow-cyan-500/40 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+          >
+            {state.submitting ? "পাঠানো হচ্ছে..." : "বার্তা পাঠাও"}
+          </button>
+        </form>
+      )}
+    </motion.div>
+  );
+}
 
 export function LandingPage() {
   return (
@@ -260,47 +396,7 @@ export function LandingPage() {
         className="grid gap-6 sm:gap-8 lg:grid-cols-2"
       >
         {/* Newsletter */}
-        <motion.div variants={itemVariants} className="glass-panel p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-400/20 to-pink-400/20 flex items-center justify-center text-xl sm:text-2xl">
-              📧
-            </div>
-            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-purple-200">
-              সংবাদপত্রে যোগ দাও
-            </h2>
-          </div>
-
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-            মাসে একবার পাঠ, চ্যালেঞ্জ আর নতুন ফিচারের আপডেট চলে যায় এই নিউজলেটারে।
-          </p>
-
-          <form
-            className="space-y-3 sm:space-y-4"
-            onSubmit={(event) => {
-              event.preventDefault();
-              alert("ধন্যবাদ! খুব তাড়াতাড়ি আমরা আপনাকে মেইল পাঠাবো।");
-            }}
-          >
-            <input
-              type="text"
-              required
-              placeholder="তোমার নাম"
-              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
-            />
-            <input
-              type="email"
-              required
-              placeholder="ইমেইল ঠিকানা"
-              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
-            />
-            <button
-              type="submit"
-              className="w-full rounded-xl sm:rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 px-5 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-purple-500/30 transition-all hover:shadow-xl hover:shadow-purple-500/40 hover:scale-105"
-            >
-              সাবস্ক্রাইব করো
-            </button>
-          </form>
-        </motion.div>
+        <NewsletterForm />
 
         {/* FAQ */}
         <motion.div variants={itemVariants} className="glass-panel p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
@@ -380,38 +476,7 @@ export function LandingPage() {
             </div>
           </motion.div>
 
-          <motion.form
-            variants={itemVariants}
-            className="space-y-3 sm:space-y-4"
-            onSubmit={(event) => {
-              event.preventDefault();
-              alert("বার্তার জন্য ধন্যবাদ! আমরা দ্রুত যোগাযোগ করবো।");
-            }}
-          >
-            <input
-              required
-              placeholder="নাম"
-              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
-            />
-            <input
-              type="email"
-              required
-              placeholder="ইমেইল"
-              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
-            />
-            <textarea
-              required
-              rows={4}
-              placeholder="বার্তা লিখুন..."
-              className="w-full rounded-xl sm:rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 sm:px-5 py-3 sm:py-4 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all resize-none"
-            />
-            <button
-              type="submit"
-              className="w-full rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 px-5 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-cyan-500/30 transition-all hover:shadow-xl hover:shadow-cyan-500/40 hover:scale-105"
-            >
-              বার্তা পাঠাও
-            </button>
-          </motion.form>
+          <ContactForm />
         </div>
       </motion.section>
 
