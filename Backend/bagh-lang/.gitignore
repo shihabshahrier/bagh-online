@@ -1,0 +1,38 @@
+# Python cache/bytecode
+__pycache__
+*.py[cod]
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.pyinstaller/
+BaghLang.dmg
+*.dmg
+.venv/
+.env/
+.envrc
+*.log
+.Python
+venv/
+env/
+
+# PyInstaller output
+*.spec.bak
+
+# IDE / editor junk
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Coverage / test artifacts
+.coverage
+htmlcov/
+coverage.xml
+
+# PyInstaller build directories
+bagh/
+bagh.build/
+# Iconset scratch directories
+Icons.iconset/

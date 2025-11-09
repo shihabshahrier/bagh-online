@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include bagh_lang/examples *.bg
+recursive-include bagh_lang/assets *.png

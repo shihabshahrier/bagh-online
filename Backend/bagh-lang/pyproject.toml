@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bagh-lang"
+version = "0.1.0"
+description = "Bagh Lang: a Bangla + Latin bilingual programming language crafted by Shahriar Labs."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Shihab Shahriar", email = "hello@shahriarlabs.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python",
+    "Natural Language :: Bengali",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+]
+dependencies = []
+
+[project.optional-dependencies]
+syntax = ["lark>=1.1"]
+
+[project.urls]
+Homepage = "https://shahriarlabs.com/"
+Source = "https://github.com/shihabshahrier/bagh-lang"
+Repository = "https://github.com/shihabshahrier/bagh-lang"
+Issues = "https://github.com/shihabshahrier/bagh-lang/issues"
+
+[project.scripts]
+bagh = "bagh_lang.cli:main"
+bagh-gui = "bagh_lang.gui_app:main"
+
+[tool.setuptools]
+include-package-data = true
+packages = ["bagh_lang", "bagh_lang.assets"]
+
+[tool.setuptools.package-data]
+bagh_lang = ["examples/*.bg", "assets/*.png"]
