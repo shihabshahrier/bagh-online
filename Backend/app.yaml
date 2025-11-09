@@ -1,0 +1,30 @@
+runtime: python311
+
+instance_class: F2
+
+entrypoint: gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind :$PORT --timeout 30
+
+env_variables:
+  ENVIRONMENT: production
+  LOG_LEVEL: INFO
+  BAGH_API_HOST: 0.0.0.0
+  BAGH_API_PORT: 8080
+  CORS_ALLOW_ORIGINS: "https://bagh-beta.shahriarlabs.com"
+  BAGH_SANDBOX_TIMEOUT: "3.0"
+  BAGH_SANDBOX_MAX_SOURCE: "6000"
+  BAGH_SANDBOX_MAX_OUTPUT: "5000"
+  BAGH_SANDBOX_MAX_CONCURRENCY: "8"
+  GEMINI_MODEL: "gemini-2.5-flash"
+  GEMINI_TEMPERATURE: "0.4"
+  GEMINI_TOP_P: "0.9"
+  GEMINI_TOP_K: "40"
+  GEMINI_MAX_OUTPUT_TOKENS: "512"
+  # GEMINI_API_KEY will be added by deploy script
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 10
+  min_pending_latency: 30ms
+  max_pending_latency: automatic
+  max_concurrent_requests: 80

@@ -6,7 +6,6 @@ import { lessons } from "../data/lessons";
 import {
   ApiError,
   assistWithBagh,
-  buildAssetUrl,
   checkHealth,
   executeBagh,
   translateBagh,
@@ -18,7 +17,7 @@ const tabs = [
 ];
 
 export function PlaygroundPage() {
-  const logoUrl = buildAssetUrl("bagh_logo.png");
+  const logoUrl = "/bagh_logo.png";
   const [selectedSample, setSelectedSample] = useState(lessons[0]?.id ?? "");
   const [code, setCode] = useState(lessons[0]?.sections[0]?.code?.bagh ?? "");
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]["key"]>("stdout");
@@ -263,8 +262,8 @@ export function PlaygroundPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className={`rounded-xl px-4 py-2 text-sm font-medium transition-all ${activeTab === tab.key
-                      ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-100 shadow-lg shadow-cyan-500/10 border border-cyan-400/30"
-                      : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
+                    ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-100 shadow-lg shadow-cyan-500/10 border border-cyan-400/30"
+                    : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
                     }`}
                   onClick={() => setActiveTab(tab.key)}
                 >

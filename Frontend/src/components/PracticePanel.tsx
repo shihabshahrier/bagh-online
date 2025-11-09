@@ -64,7 +64,7 @@ export function PracticePanel({ practice }: PracticePanelProps) {
                 }`}
             >
               <p className="font-semibold text-sm sm:text-base text-slate-100">{item.question}</p>
-              
+
               {item.type === "fill-in-the-blank" ? (
                 <div className="mt-2.5 sm:mt-3 space-y-2">
                   <pre className="code-block bg-slate-800/60">{item.codeSnippet?.replace("____", " ")}</pre>
@@ -97,8 +97,8 @@ export function PracticePanel({ practice }: PracticePanelProps) {
                         onClick={() => handleMcqAnswer(item, index)}
                         disabled={isCorrect}
                         className={`rounded-lg sm:rounded-xl border px-3 sm:px-4 py-2 text-left text-xs sm:text-sm transition ${isSelected
-                            ? "border-cyan-300 bg-cyan-400/10 text-cyan-100"
-                            : "border-cyan-300/20 bg-slate-900/60 hover:border-cyan-200/50"
+                          ? "border-cyan-300 bg-cyan-400/10 text-cyan-100"
+                          : "border-cyan-300/20 bg-slate-900/60 hover:border-cyan-200/50"
                           }`}
                       >
                         {option}
@@ -111,8 +111,8 @@ export function PracticePanel({ practice }: PracticePanelProps) {
               {record && (
                 <div
                   className={`mt-2.5 sm:mt-3 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm ${isCorrect
-                      ? "bg-emerald-400/10 text-emerald-200"
-                      : "bg-rose-400/10 text-rose-200"
+                    ? "bg-emerald-400/10 text-emerald-200"
+                    : "bg-rose-400/10 text-rose-200"
                     }`}
                 >
                   {isCorrect ? (

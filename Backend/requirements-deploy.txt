@@ -1,0 +1,10 @@
+# Flattened dependencies for GCP App Engine deployment
+fastapi==0.111.1
+uvicorn[standard]==0.30.3
+pydantic==2.7.4
+pydantic-settings==2.3.1
+tenacity==8.3.0
+google-generativeai==0.6.0
+gunicorn==21.2.0
+httpx==0.27.0
+python-multipart==0.0.9
