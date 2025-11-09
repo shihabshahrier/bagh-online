@@ -63,6 +63,10 @@ export function Header() {
                   repeatDelay: 3,
                 }}
               />
+              {/* Beta Tag */}
+              <div className="absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1 text-[7px] sm:text-[8px] font-extrabold text-white z-20">
+                BETA
+              </div>
             </motion.div>
             <span className="hidden sm:inline">বাঘ ল্যাং স্টুডিও</span>
             <span className="sm:hidden">বাঘ ল্যাং</span>

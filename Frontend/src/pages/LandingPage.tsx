@@ -319,7 +319,13 @@ export function LandingPage() {
               }}
               className="absolute -top-8 -right-8 hidden lg:block"
             >
-              <img src="/bagh_logo.png" alt="Bagh Logo" className="w-32 h-32 drop-shadow-2xl opacity-90" />
+              <div className="relative">
+                <img src="/bagh_logo.png" alt="Bagh Logo" className="w-32 h-32 drop-shadow-2xl opacity-90" />
+                {/* Beta Tag */}
+                <div className="absolute -top-1 -right-1 text-xs font-extrabold text-white bg-red-500 px-1.5 py-0.5 rounded">
+                  BETA
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>
