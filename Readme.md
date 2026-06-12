@@ -408,3 +408,7 @@ The studio proxies `/api` calls to the backend and renders the official logo fro
 - Cloud architecture, sandbox hardening, and futuristic UI scaffolded in this repo revision.
 
 Let’s keep teaching kids to code in Bangla — now from the browser, securely and beautifully. 🐯🚀
+
+---
+
+📖 **Project page:** https://shihub.online/projects/baghlang
