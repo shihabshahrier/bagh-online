@@ -411,4 +411,4 @@ Let’s keep teaching kids to code in Bangla — now from the browser, securely 
 
 ---
 
-📖 **Project page:** https://shihub.online/projects/baghlang
+📖 **Project page:** https://shihub.site/projects/baghlang
